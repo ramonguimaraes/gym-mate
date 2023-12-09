@@ -1,8 +1,11 @@
 package com.ramonguimaraes.gymmate.core.di
 
-import org.koin.core.module.Module
+import com.ramonguimaraes.gymmate.login.di.authModule
 
 object KoinModules {
 
-    fun modules() = listOf<Module>()
+    fun modules() = listOf(
+        firebaseModule(),
+        authModule()
+    )
 }

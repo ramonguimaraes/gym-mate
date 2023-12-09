@@ -1,4 +1,4 @@
-package com.ramonguimaraes.gymmate
+package com.ramonguimaraes.gymmate.core
 
 import android.app.Application
 import com.ramonguimaraes.gymmate.core.di.KoinModules
