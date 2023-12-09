@@ -34,6 +34,14 @@ class LoginFragment : Fragment() {
             }
         }
 
+        viewModel.emailError.observe(viewLifecycleOwner) {
+            binding.edtEmail.error = it
+        }
+
+        viewModel.passwordError.observe(viewLifecycleOwner) {
+            binding.edtPassword.error = it
+        }
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
