@@ -1,4 +1,4 @@
-package com.ramonguimaraes.gymmate
+package com.ramonguimaraes.gymmate.login.presenter.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
