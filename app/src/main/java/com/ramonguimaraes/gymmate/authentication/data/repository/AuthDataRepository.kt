@@ -1,8 +1,8 @@
-package com.ramonguimaraes.gymmate.login.data.repository
+package com.ramonguimaraes.gymmate.authentication.data.repository
 
-import com.ramonguimaraes.gymmate.core.Result
-import com.ramonguimaraes.gymmate.login.data.dataSource.AuthDataSource
-import com.ramonguimaraes.gymmate.login.domain.repository.AuthRepository
+import com.ramonguimaraes.gymmate.core.utils.Result
+import com.ramonguimaraes.gymmate.authentication.data.dataSource.AuthDataSource
+import com.ramonguimaraes.gymmate.authentication.domain.repository.AuthRepository
 
 class AuthDataRepository(private val dataSource: AuthDataSource): AuthRepository {
 

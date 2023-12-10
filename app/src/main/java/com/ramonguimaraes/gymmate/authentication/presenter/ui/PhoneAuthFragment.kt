@@ -1,12 +1,10 @@
-package com.ramonguimaraes.gymmate.login.presenter.ui
+package com.ramonguimaraes.gymmate.authentication.presenter.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.FirebaseException
@@ -15,7 +13,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.ramonguimaraes.gymmate.databinding.FragmentPhoneAuthBinding
-import com.ramonguimaraes.gymmate.login.presenter.viewModel.PhoneAuthViewModel
+import com.ramonguimaraes.gymmate.authentication.presenter.viewModel.PhoneAuthViewModel
 import org.koin.android.ext.android.inject
 import java.util.concurrent.TimeUnit
 

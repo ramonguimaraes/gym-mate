@@ -1,9 +1,9 @@
-package com.ramonguimaraes.gymmate.login.data.dataSource
+package com.ramonguimaraes.gymmate.authentication.data.dataSource
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.PhoneAuthProvider
-import com.ramonguimaraes.gymmate.core.Result
+import com.ramonguimaraes.gymmate.core.utils.Result
 import kotlinx.coroutines.tasks.await
 
 class AuthDataSourceImpl(private val firebaseAuth: FirebaseAuth) : AuthDataSource {

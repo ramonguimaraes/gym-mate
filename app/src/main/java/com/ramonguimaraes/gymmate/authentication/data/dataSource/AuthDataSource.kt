@@ -1,8 +1,9 @@
-package com.ramonguimaraes.gymmate.login.domain.repository
+package com.ramonguimaraes.gymmate.authentication.data.dataSource
 
-import com.ramonguimaraes.gymmate.core.Result
+import com.ramonguimaraes.gymmate.core.utils.Result
 
-interface AuthRepository {
+interface AuthDataSource {
+
     suspend fun login(email: String, password: String): Result<Unit>
     suspend fun createAccount(email: String, password: String): Result<Unit>
     suspend fun resetPassword(email: String): Result<Unit>

@@ -1,4 +1,4 @@
-package com.ramonguimaraes.gymmate.core
+package com.ramonguimaraes.gymmate.core.utils
 
 sealed class Result<out T : Any> {
 

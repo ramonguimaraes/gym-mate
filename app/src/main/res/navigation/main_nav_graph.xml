@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.ramonguimaraes.gymmate.login.presenter.ui.LoginFragment"
+        android:name="com.ramonguimaraes.gymmate.authentication.presenter.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.ramonguimaraes.gymmate.login.presenter.ui.CreateAccountFragment"
+        android:name="com.ramonguimaraes.gymmate.authentication.presenter.ui.CreateAccountFragment"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneAuthFragment"
-        android:name="com.ramonguimaraes.gymmate.login.presenter.ui.PhoneAuthFragment"
+        android:name="com.ramonguimaraes.gymmate.authentication.presenter.ui.PhoneAuthFragment"
         android:label="fragment_phone_auth"
         tools:layout="@layout/fragment_phone_auth" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/codeVerificationFragment"
-        android:name="com.ramonguimaraes.gymmate.login.presenter.ui.CodeVerificationFragment"
+        android:name="com.ramonguimaraes.gymmate.authentication.presenter.ui.CodeVerificationFragment"
         android:label="fragment_code_verification"
         tools:layout="@layout/fragment_code_verification" >
         <action

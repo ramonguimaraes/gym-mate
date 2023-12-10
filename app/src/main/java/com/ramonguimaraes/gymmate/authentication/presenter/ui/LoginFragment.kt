@@ -1,4 +1,4 @@
-package com.ramonguimaraes.gymmate.login.presenter.ui
+package com.ramonguimaraes.gymmate.authentication.presenter.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -17,9 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.ramonguimaraes.gymmate.BuildConfig
 import com.ramonguimaraes.gymmate.R
-import com.ramonguimaraes.gymmate.core.Result
+import com.ramonguimaraes.gymmate.core.utils.Result
 import com.ramonguimaraes.gymmate.databinding.FragmentLoginBinding
-import com.ramonguimaraes.gymmate.login.presenter.viewModel.LoginViewModel
+import com.ramonguimaraes.gymmate.authentication.presenter.viewModel.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {

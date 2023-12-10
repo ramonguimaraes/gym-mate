@@ -1,4 +1,4 @@
-package com.ramonguimaraes.gymmate.login.presenter.viewModel
+package com.ramonguimaraes.gymmate.authentication.presenter.viewModel
 
 import androidx.lifecycle.ViewModel
 
