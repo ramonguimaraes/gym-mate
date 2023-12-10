@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.ramonguimaraes.gymmate.R
 import com.ramonguimaraes.gymmate.core.Result
 import com.ramonguimaraes.gymmate.databinding.FragmentLoginBinding
 import com.ramonguimaraes.gymmate.login.presenter.viewModel.LoginViewModel
@@ -46,6 +48,10 @@ class LoginFragment : Fragment() {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
             viewModel.login(email, password)
+        }
+
+        binding.txtCreateAccount.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
         }
 
         return binding.root

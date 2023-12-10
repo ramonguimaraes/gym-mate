@@ -5,4 +5,5 @@ import com.ramonguimaraes.gymmate.core.Result
 interface AuthDataSource {
 
     suspend fun login(email: String, password: String): Result<Unit>
+    suspend fun createAccount(email: String, password: String): Result<Unit>
 }

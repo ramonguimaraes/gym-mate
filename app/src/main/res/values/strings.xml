@@ -10,4 +10,7 @@
     <string name="don_t_have_account">Don\'t have account?</string>
     <string name="sing_up">Sing up</string>
     <string name="password">Password</string>
+    <string name="repeat_the_password">Repeat the password</string>
+    <string name="create_account">Create account</string>
+    <string name="back">Back</string>
 </resources>

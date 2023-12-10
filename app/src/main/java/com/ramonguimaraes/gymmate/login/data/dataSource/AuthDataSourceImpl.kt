@@ -14,4 +14,15 @@ class AuthDataSourceImpl(private val firebaseAuth: FirebaseAuth) : AuthDataSourc
             Result.Error(e, e.message.toString())
         }
     }
+
+    override suspend fun createAccount(email: String, password: String): Result<Unit> {
+        return try {
+            val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
+            result.user?.sendEmailVerification()
+            firebaseAuth.signOut()
+            Result.Success(Unit)
+        } catch (e: Exception) {
+            Result.Error(e, e.message.toString())
+        }
+    }
 }
