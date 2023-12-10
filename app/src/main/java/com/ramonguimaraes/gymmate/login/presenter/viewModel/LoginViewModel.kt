@@ -68,4 +68,12 @@ class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
             }
         }
     }
+
+    fun signInWithGoogle(idToken: String?) {
+        idToken?.let {token ->
+            viewModelScope.launch(Dispatchers.IO) {
+                _loginResult.postValue(repository.sigInWithGoogle(token))
+            }
+        }
+    }
 }

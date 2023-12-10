@@ -21,4 +21,8 @@ class AuthDataRepository(private val dataSource: AuthDataSource): AuthRepository
     override suspend fun verifyCode(verificationId: String, code: String): Result<Unit> {
         return dataSource.verifyCode(verificationId, code)
     }
+
+    override suspend fun sigInWithGoogle(token: String): Result<Unit> {
+        return dataSource.sigInWithGoogle(token)
+    }
 }
