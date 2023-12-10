@@ -17,4 +17,8 @@ class AuthDataRepository(private val dataSource: AuthDataSource): AuthRepository
     override suspend fun resetPassword(email: String): Result<Unit> {
         return dataSource.resetPassword(email)
     }
+
+    override suspend fun verifyCode(verificationId: String, code: String): Result<Unit> {
+        return dataSource.verifyCode(verificationId, code)
+    }
 }

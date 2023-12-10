@@ -1,6 +1,7 @@
 package com.ramonguimaraes.gymmate.login.data.dataSource
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthProvider
 import com.ramonguimaraes.gymmate.core.Result
 import kotlinx.coroutines.tasks.await
 
@@ -29,6 +30,16 @@ class AuthDataSourceImpl(private val firebaseAuth: FirebaseAuth) : AuthDataSourc
     override suspend fun resetPassword(email: String): Result<Unit> {
         return try {
             firebaseAuth.sendPasswordResetEmail(email)
+            Result.Success(Unit)
+        } catch (e: Exception) {
+            Result.Error(e, e.message.toString())
+        }
+    }
+
+    override suspend fun verifyCode(verificationId: String, code: String): Result<Unit> {
+        return try {
+            val credential = PhoneAuthProvider.getCredential(verificationId, code)
+            firebaseAuth.signInWithCredential(credential).await()
             Result.Success(Unit)
         } catch (e: Exception) {
             Result.Error(e, e.message.toString())

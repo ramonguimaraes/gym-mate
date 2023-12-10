@@ -71,6 +71,10 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
         }
 
+        binding.btnPhoneSingUp.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_phoneAuthFragment)
+        }
+
         return binding.root
     }
 }
