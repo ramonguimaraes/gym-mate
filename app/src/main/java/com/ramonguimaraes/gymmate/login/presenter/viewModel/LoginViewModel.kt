@@ -9,7 +9,6 @@ import com.ramonguimaraes.gymmate.core.Result
 import com.ramonguimaraes.gymmate.login.domain.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.regex.Pattern
 
 class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
 
@@ -21,6 +20,9 @@ class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
 
     private val _passwordError = MutableLiveData<String>()
     val passwordError: LiveData<String> = _passwordError
+
+    private val _resetPasswordResult = MutableLiveData<Result<Unit>>()
+    val resetPasswordResult: LiveData<Result<Unit>> = _resetPasswordResult
 
     fun login(email: String, password: String) {
         if (validateFields(email, password)) {
@@ -57,5 +59,13 @@ class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
 
     private fun validateFields(email: String, password: String): Boolean {
         return validateEmail(email) and validatePassword(password)
+    }
+
+    fun resetPassword(email: String) {
+        if (validateEmail(email)) {
+            viewModelScope.launch(Dispatchers.IO) {
+                _resetPasswordResult.postValue(repository.resetPassword(email))
+            }
+        }
     }
 }

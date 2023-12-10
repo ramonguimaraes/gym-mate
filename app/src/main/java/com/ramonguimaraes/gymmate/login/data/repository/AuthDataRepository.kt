@@ -13,4 +13,8 @@ class AuthDataRepository(private val dataSource: AuthDataSource): AuthRepository
     override suspend fun createAccount(email: String, password: String): Result<Unit> {
         return dataSource.createAccount(email, password)
     }
+
+    override suspend fun resetPassword(email: String): Result<Unit> {
+        return dataSource.resetPassword(email)
+    }
 }

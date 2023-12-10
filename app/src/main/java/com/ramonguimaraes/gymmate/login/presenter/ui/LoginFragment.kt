@@ -44,10 +44,27 @@ class LoginFragment : Fragment() {
             binding.edtPassword.error = it
         }
 
+        viewModel.resetPasswordResult.observe(viewLifecycleOwner) {
+            when (it) {
+                is Result.Success -> {
+                    Toast.makeText(requireContext(), "Verifique seu email", Toast.LENGTH_SHORT).show()
+                }
+
+                is Result.Error -> {
+                    Toast.makeText(requireContext(), "Erro ao tentar resetar senha", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
             viewModel.login(email, password)
+        }
+
+        binding.txtForgetPassword.setOnClickListener {
+            val email = binding.edtEmail.text.toString()
+            viewModel.resetPassword(email)
         }
 
         binding.txtCreateAccount.setOnClickListener {

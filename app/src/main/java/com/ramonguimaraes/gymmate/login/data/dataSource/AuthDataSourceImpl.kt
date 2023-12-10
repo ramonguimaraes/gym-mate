@@ -25,4 +25,13 @@ class AuthDataSourceImpl(private val firebaseAuth: FirebaseAuth) : AuthDataSourc
             Result.Error(e, e.message.toString())
         }
     }
+
+    override suspend fun resetPassword(email: String): Result<Unit> {
+        return try {
+            firebaseAuth.sendPasswordResetEmail(email)
+            Result.Success(Unit)
+        } catch (e: Exception) {
+            Result.Error(e, e.message.toString())
+        }
+    }
 }
