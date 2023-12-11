@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_phoneAuthFragment"
             app:destination="@id/phoneAuthFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_workoutFragment"
+            app:destination="@id/workoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -54,5 +57,13 @@
         <argument
             android:name="phoneNumber"
             app:argType="string" />
+        <action
+            android:id="@+id/action_codeVerificationFragment_to_workoutFragment"
+            app:destination="@id/workoutFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/workoutFragment"
+        android:name="com.ramonguimaraes.gymmate.workout.presenter.ui.WorkoutFragment"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" />
 </navigation>

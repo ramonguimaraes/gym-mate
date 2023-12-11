@@ -8,4 +8,5 @@ interface AuthRepository {
     suspend fun resetPassword(email: String): Result<Unit>
     suspend fun verifyCode(verificationId: String, code: String): Result<Unit>
     suspend fun sigInWithGoogle(token: String): Result<Unit>
+    fun currentUserId(): String?
 }

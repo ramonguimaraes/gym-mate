@@ -7,6 +7,9 @@ import com.ramonguimaraes.gymmate.core.utils.Result
 import kotlinx.coroutines.tasks.await
 
 class AuthDataSourceImpl(private val firebaseAuth: FirebaseAuth) : AuthDataSource {
+    override fun currentUseId(): String? {
+        return firebaseAuth.currentUser?.uid
+    }
 
     override suspend fun login(email: String, password: String): Result<Unit> {
         return try {

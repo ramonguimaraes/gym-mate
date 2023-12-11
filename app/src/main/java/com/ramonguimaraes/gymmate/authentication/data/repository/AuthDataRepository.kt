@@ -25,4 +25,8 @@ class AuthDataRepository(private val dataSource: AuthDataSource): AuthRepository
     override suspend fun sigInWithGoogle(token: String): Result<Unit> {
         return dataSource.sigInWithGoogle(token)
     }
+
+    override fun currentUserId(): String? {
+        return dataSource.currentUseId()
+    }
 }
