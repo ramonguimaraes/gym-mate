@@ -31,6 +31,7 @@ class CreateAccountFragment : Fragment() {
                     Toast.makeText(requireContext(), "Verifique seu email", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_createAccountFragment_to_loginFragment)
                 }
+                is Result.Loading -> {}
                 is Result.Error -> {
                     Toast.makeText(requireContext(), "Erro ao criar a conta", Toast.LENGTH_SHORT).show()
                 }

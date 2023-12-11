@@ -1,6 +1,7 @@
 package com.ramonguimaraes.gymmate.core.di
 
 import com.ramonguimaraes.gymmate.authentication.di.authModule
+import com.ramonguimaraes.gymmate.exercises.di.exerciseModule
 import com.ramonguimaraes.gymmate.workout.di.workoutModule
 
 object KoinModules {
@@ -8,6 +9,7 @@ object KoinModules {
     fun modules() = listOf(
         firebaseModule(),
         authModule(),
-        workoutModule()
+        workoutModule(),
+        exerciseModule()
     )
 }

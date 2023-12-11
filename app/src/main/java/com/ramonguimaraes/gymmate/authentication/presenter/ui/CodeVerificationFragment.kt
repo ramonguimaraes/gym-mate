@@ -34,6 +34,8 @@ class CodeVerificationFragment : Fragment() {
                     findNavController().navigate(R.id.action_codeVerificationFragment_to_workoutFragment)
                 }
 
+                is Result.Loading -> {}
+
                 is Result.Error -> {
                     Toast.makeText(
                         requireContext(),

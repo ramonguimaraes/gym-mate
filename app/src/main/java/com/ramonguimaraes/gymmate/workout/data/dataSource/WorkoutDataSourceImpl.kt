@@ -1,11 +1,13 @@
 package com.ramonguimaraes.gymmate.workout.data.dataSource
 
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ramonguimaraes.gymmate.core.utils.Result
 import com.ramonguimaraes.gymmate.workout.data.model.WorkoutDTO
 import com.ramonguimaraes.gymmate.workout.data.model.toMap
 import com.ramonguimaraes.gymmate.workout.presenter.ui.WorkoutDialog
 import kotlinx.coroutines.tasks.await
+import java.util.Date
 
 class WorkoutDataSourceImpl(
     private val db: FirebaseFirestore
@@ -40,7 +42,8 @@ class WorkoutDataSourceImpl(
             val result = db.collection("workouts").whereEqualTo("userId", userId).get().await()
 
             result.forEach { snapshot ->
-                resultList.add(snapshot.toObject(WorkoutDTO::class.java).copy(id = snapshot.id))
+                val date = snapshot.get("date", Timestamp::class.java)?.toDate() ?: Date()
+                resultList.add(snapshot.toObject(WorkoutDTO::class.java).copy(id = snapshot.id, date = date))
             }
 
             Result.Success(resultList)

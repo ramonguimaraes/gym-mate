@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ramonguimaraes.gymmate.R
 import com.ramonguimaraes.gymmate.core.utils.Result
@@ -42,6 +43,7 @@ class WorkoutFragment : Fragment() {
                         adapter.submitList(it.data.toMutableList())
                     }
                 }
+                is Result.Loading -> {}
                 is Result.Error -> Toast.makeText(
                     context,
                     "Falha ao carregar os treinos",
@@ -59,13 +61,17 @@ class WorkoutFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
+                is Result.Loading -> {}
                 is Result.Error -> Toast.makeText(context, "Falha ao salvar", Toast.LENGTH_SHORT)
                     .show()
             }
         }
 
         viewModel.getAll()
+        adapter.setItemClickListener { workout ->
+            val action = WorkoutFragmentDirections.actionWorkoutFragmentToExercisesFragment(workout)
+            findNavController().navigate(action)
+        }
 
         adapter.setOptionsClickListener { view: View, workout: Workout ->
             val popupMenu = PopupMenu(context, view)
