@@ -76,4 +76,8 @@ class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
             }
         }
     }
+
+    fun currentUserId(): String? {
+        return repository.currentUserId()
+    }
 }

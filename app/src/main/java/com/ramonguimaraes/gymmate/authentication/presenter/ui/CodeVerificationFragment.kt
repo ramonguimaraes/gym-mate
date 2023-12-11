@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.ramonguimaraes.gymmate.R
 import com.ramonguimaraes.gymmate.core.utils.Result
 import com.ramonguimaraes.gymmate.databinding.FragmentCodeVerificationBinding
 import com.ramonguimaraes.gymmate.authentication.presenter.viewModel.CodeVerificationViewModel
@@ -29,7 +31,7 @@ class CodeVerificationFragment : Fragment() {
         viewModel.singUpWithPhoneResult.observe(viewLifecycleOwner) {
             when (it) {
                 is Result.Success -> {
-                    Toast.makeText(requireContext(), "Seja bem vindo", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_codeVerificationFragment_to_workoutFragment)
                 }
 
                 is Result.Error -> {

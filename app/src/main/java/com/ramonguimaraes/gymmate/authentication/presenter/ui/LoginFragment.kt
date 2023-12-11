@@ -31,6 +31,13 @@ class LoginFragment : Fragment() {
         FragmentLoginBinding.inflate(layoutInflater)
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (viewModel.currentUserId() != null) {
+            findNavController().navigate(R.id.action_loginFragment_to_workoutFragment)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -63,6 +70,7 @@ class LoginFragment : Fragment() {
             when (it) {
                 is Result.Success -> {
                     Toast.makeText(requireContext(), "Logado", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_loginFragment_to_workoutFragment)
                 }
 
                 is Result.Error -> {
