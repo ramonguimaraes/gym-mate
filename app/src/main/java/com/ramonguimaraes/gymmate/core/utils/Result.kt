@@ -7,11 +7,15 @@ sealed class Result<out T> {
         val exception: Exception,
         val errorMessage: String,
     ) : Result<Nothing>()
+    data object Loading : Result<Nothing>()
 
     fun <ToMap> mapResultSuccess(getData: (T) -> ToMap): Result<ToMap> {
         return when (this) {
             is Success -> {
                 Success(getData(data))
+            }
+            is Loading -> {
+                this
             }
             is Error -> {
                 this

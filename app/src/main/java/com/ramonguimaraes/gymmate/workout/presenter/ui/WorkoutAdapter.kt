@@ -18,8 +18,8 @@ class WorkoutAdapter : ListAdapter<Workout, WorkoutAdapter.WorkoutViewHolder>(
         this.optionsListener = optionsListener
     }
 
-    private var itemClickListener: () -> Unit = {}
-    fun setItemClickListener(itemClickListener: () -> Unit) {
+    private var itemClickListener: (item: Workout) -> Unit = {}
+    fun setItemClickListener(itemClickListener: (item: Workout) -> Unit) {
         this.itemClickListener = itemClickListener
     }
 
@@ -30,13 +30,13 @@ class WorkoutAdapter : ListAdapter<Workout, WorkoutAdapter.WorkoutViewHolder>(
     class WorkoutViewHolder(
         private val binding: WorkoutItemBinding,
         private val optionsListener: (view: View, item: Workout) -> Unit,
-        private val itemClickListener: () -> Unit
+        private val itemClickListener: (item: Workout) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Workout) {
             binding.txtName.text = item.name
             binding.txtDescription.text = item.description
             binding.btnOptions.setOnClickListener { optionsListener.invoke(it, item) }
-            binding.root.setOnClickListener { itemClickListener.invoke() }
+            binding.root.setOnClickListener { itemClickListener.invoke(item) }
         }
     }
 

@@ -72,7 +72,7 @@ class LoginFragment : Fragment() {
                     Toast.makeText(requireContext(), "Logado", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_loginFragment_to_workoutFragment)
                 }
-
+                is Result.Loading -> {}
                 is Result.Error -> {
                     Toast.makeText(requireContext(), "Falha ao fazer login", Toast.LENGTH_SHORT)
                         .show()
@@ -94,7 +94,7 @@ class LoginFragment : Fragment() {
                     Toast.makeText(requireContext(), "Verifique seu email", Toast.LENGTH_SHORT)
                         .show()
                 }
-
+                is Result.Loading -> {}
                 is Result.Error -> {
                     Toast.makeText(
                         requireContext(),

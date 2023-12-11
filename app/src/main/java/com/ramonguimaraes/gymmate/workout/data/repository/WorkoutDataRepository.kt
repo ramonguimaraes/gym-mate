@@ -9,8 +9,8 @@ import com.ramonguimaraes.gymmate.workout.data.model.toWorkout
 
 class WorkoutDataRepository(private val dataSource: WorkoutDataSource): WorkoutRepository {
 
-    override suspend fun save(workout: Workout, userId: String): Result<Workout> {
-        val dto = workout.toWorkoutDto(userId)
+    override suspend fun save(workout: Workout): Result<Workout> {
+        val dto = workout.toWorkoutDto()
         return dataSource.save(dto).mapResultSuccess { it.toWorkout() }
     }
 
@@ -25,6 +25,6 @@ class WorkoutDataRepository(private val dataSource: WorkoutDataSource): WorkoutR
 
     override suspend fun update(workout: Workout): Result<Workout> {
         val dto = workout.toWorkoutDto()
-        return dataSource.update(dto) .mapResultSuccess { it.toWorkout() }
+        return dataSource.update(dto).mapResultSuccess { it.toWorkout() }
     }
 }

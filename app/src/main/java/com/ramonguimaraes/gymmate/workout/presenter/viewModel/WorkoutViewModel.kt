@@ -48,7 +48,7 @@ class WorkoutViewModel(
                 val result = if (workout.id.isNotBlank()) {
                     repository.update(workout)
                 } else {
-                    repository.save(workout, userId)
+                    repository.save(workout.copy(userId = userId))
                 }
 
                 if (result is Result.Success) {
